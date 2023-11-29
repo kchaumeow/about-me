@@ -12,6 +12,7 @@ body {
 .navbar{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2em;
 }
 a{
@@ -22,10 +23,5 @@ a{
 }
 
 .active-link {
-  
   color: rgb(233, 189, 135);
-}
-
-.non-active-link {
-  text-decoration: none;
 }
