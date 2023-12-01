@@ -4,11 +4,11 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <CustomLink href="/">
-        <h2>Home</h2>
+        <h3>Home</h3>
       </CustomLink>
-      <h2>Hello, I'm Alyona 👋</h2>
+      <h3>Hello, dear visitor 👋</h3>
       <CustomLink href="/projects">
-        <h2>Projects</h2>
+        <h3>Projects</h3>
       </CustomLink>
     </div>
   );
