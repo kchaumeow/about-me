@@ -6,7 +6,7 @@ export default function Navbar() {
       <CustomLink href="/">
         <h3>Home</h3>
       </CustomLink>
-      <h3>Hello, dear visitor 👋</h3>
+      <h3 className="greeting">Hello, dear visitor 👋</h3>
       <CustomLink href="/projects">
         <h3>Projects</h3>
       </CustomLink>

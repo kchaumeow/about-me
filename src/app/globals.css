@@ -20,7 +20,6 @@ code{
   color: black;
   border-radius: 5px;
 }
-
 a{
   text-decoration: none;
   color: inherit;
@@ -30,7 +29,6 @@ a{
 h2{
   color:rgb(228, 182, 126);
 }
-
 .navbar{
   display: flex;
   justify-content: space-between;
@@ -38,18 +36,15 @@ h2{
   padding: 1em 3em;
   background-color: rgb(20, 20, 27);
 }
-
 .active-link {
   color: rgb(228, 182, 126);
   text-decoration: underline;
 }
-
 .profile-image{
   width: 20rem;
   height: 23rem;
   border-radius: 10px;
 }
-
 .card {
   border: 1px solid silver;
   margin: auto;
@@ -61,12 +56,10 @@ h2{
   width: fit-content;
   background-color: rgb(20, 20, 27);
 }
-
 .card-header{
   border-bottom: 1px solid silver;
   padding: 0 1rem 0.5rem;
 }
-
 .home{
   padding: 1rem;
   display: flex;
@@ -74,14 +67,12 @@ h2{
   place-items: center;
   gap: 1rem;
 }
-
 .common-content{
   display: flex;
   gap: 1rem;
   padding: 1rem;
   place-items: center;
 }
-
 .desc{
   background-color:rgb(44, 43, 43);
   padding: 1rem;
@@ -96,22 +87,30 @@ h2{
   width: 100%;
   max-width: 500px;
 }
-
 @media (max-width: 815px) {
   .profile-image{
     display: none;
   }
 }
 
+@media (max-width: 530px) {
+  .greeting {
+    display: none;
+  }
+  .navbar{
+    padding: 1em;
+  }
+}
 .skill {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  padding: 1em;
+  gap: 1em;
+  padding: 0.5em;
   background-color: rgb(46, 45, 44);
   border-radius: 5px;
-  align-items: center;
-  width: 7rem;
+  place-items: center;
+  width: 6rem;
+  max-width: 40%;
 }
 .stack{
   padding: 1em;

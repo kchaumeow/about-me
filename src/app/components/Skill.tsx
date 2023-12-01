@@ -4,7 +4,7 @@ export default function Skill({ name, src }: { name: string; src: string }) {
   return (
     <div className="skill">
       <Image src={src} width={50} height={50} alt={name} />
-      <p>{name}</p>
+      <div>{name}</div>
     </div>
   );
 }
