@@ -9,7 +9,7 @@ export default function Stack() {
       </h3>
       <div className="stack">
         {techstack.map((skill) => {
-          return <Skill name={skill.name} src={skill.src} />;
+          return <Skill key={skill.name} name={skill.name} src={skill.src} />;
         })}
       </div>
     </div>

@@ -14,6 +14,9 @@ main{
   width: 90%;
   margin: auto;
 }
+input:focus, button:focus {
+  outline: none;
+}
 code{
   background-color: rgb(228, 182, 126);
   padding: 0.3rem;
@@ -91,8 +94,10 @@ h2{
   .profile-image{
     display: none;
   }
+  .bottom-content {
+    flex-direction: column;
+  }
 }
-
 @media (max-width: 530px) {
   .greeting {
     display: none;
@@ -100,6 +105,10 @@ h2{
   .navbar{
     padding: 1em;
   }
+  .contact {
+    flex-wrap: wrap;
+  }
+
 }
 .skill {
   display: flex;
@@ -118,4 +127,41 @@ h2{
   display: flex;
   gap: 1em;
   flex-wrap: wrap;
+}
+.contact{
+  padding: 1em;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+}
+.contact > input, button {
+  background-color: rgb(44, 43, 43);
+  border: 1px solid silver;
+  border-radius: 3px;
+  color: rgb(228, 182, 126);
+  font-family: 'Fira Code', monospace;
+  padding: 0.3rem;
+}
+.contact > button {
+  background-color: rgb(228, 182, 126);
+  border: 1px solid rgb(44, 43, 43);
+  color: rgb(44, 43, 43);
+  width: 4rem;
+}
+.contact > div {
+  width: 5rem;
+}
+.contacts{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bottom-content{
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+.go-to{
+  padding: 1rem;
 }

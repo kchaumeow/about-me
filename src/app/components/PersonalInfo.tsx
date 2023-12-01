@@ -24,15 +24,16 @@ export default function PersonalInfo() {
             <p>I am Frontend developer!</p>
             <p>Also can do backend on Node.js</p>
             <p>
-              On this webpage you can find my contacts, tech-stack and personal
-              projects
+              On this webpage you can find my contacts,{" "}
+              <CustomLink href="#Contacts">
+                technology <code>Skills</code>
+              </CustomLink>{" "}
+              and personal projects
             </p>
             <hr />
             <p>My hobbies: ukulele, drawing and computer games</p>
             <CustomLink href="#Contacts">
-              <p>
-                If you want to connect with me, go to <code>Contacts</code>
-              </p>
+              If you want to connect with me, go to <code>Contacts</code>
             </CustomLink>
           </div>
         </div>
