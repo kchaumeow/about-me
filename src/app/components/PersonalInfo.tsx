@@ -25,7 +25,7 @@ export default function PersonalInfo() {
             <p>Also can do backend on Node.js</p>
             <p>
               On this webpage you can find my contacts,{" "}
-              <CustomLink href="#Contacts">
+              <CustomLink href="#Skills">
                 technology <code>Skills</code>
               </CustomLink>{" "}
               and personal projects
