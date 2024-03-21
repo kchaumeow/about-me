@@ -39,4 +39,24 @@ export const techstack = [
     name: "MySQL",
     src: "/mysql.svg",
   },
+  {
+    name: "Tailwind",
+    src: "/tailwind.svg",
+  },
+  {
+    name: "Prisma",
+    src: "/prisma.svg",
+  },
+  {
+    name: "MUI",
+    src: "/mui.svg",
+  },
+  {
+    name: "Vite",
+    src: "/vite.svg",
+  },
+  {
+    name: "Webpack",
+    src: "/webpack.svg",
+  }
 ];
