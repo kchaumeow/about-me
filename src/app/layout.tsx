@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Desktop from "./components/Desktop";
+import MenuBar from "./components/MenuBar";
+import Stickers from "./components/Stickers";
 
 export const metadata: Metadata = {
   title: "About Alyona",
-  description: "This is a personal page of Alyona Trofimova",
+  description: "This is a personal page of Alyona Knyshova",
 };
 
 export default function RootLayout({
@@ -13,10 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
-        <Navbar />
-        <main>{children}</main>
+        <Desktop>
+          <Stickers />
+          <MenuBar />
+          <main>{children}</main>
+        </Desktop>
       </body>
     </html>
   );
