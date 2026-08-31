@@ -87,6 +87,7 @@ h2 {
   padding: 0 4px;
   user-select: none;
   touch-action: none;
+  cursor: grab;
   border-bottom: 1px solid var(--ink);
   border-radius: 3px 3px 0 0;
   background-image: repeating-linear-gradient(
@@ -185,9 +186,12 @@ h2 {
   pointer-events: none;
 }
 
+.window.is-dragging .title-bar,
+.desktop-icon.is-dragging {
+  cursor: grabbing;
+}
+
 .window.is-dragging {
-  /* promote to its own layer for the duration of the drag only */
-  will-change: transform;
   box-shadow: inset 1px 1px 0 var(--white), inset -1px -1px 0 var(--shadow),
     6px 7px 0 rgba(40, 40, 70, 0.35);
 }
@@ -620,6 +624,7 @@ h2 {
   display: flex;
   touch-action: none;
   user-select: none;
+  cursor: grab;
   flex-direction: column;
   align-items: center;
   gap: 6px;
@@ -645,10 +650,6 @@ h2 {
   text-shadow: none;
 }
 
-.desktop-icon.is-dragging {
-  will-change: transform;
-}
-
 .desktop-icon:hover span {
   background: var(--highlight);
   text-shadow: none;
@@ -662,6 +663,15 @@ h2 {
   justify-content: center;
   gap: 1.5rem;
   align-items: flex-start;
+}
+
+/* Give the compositor its layer while the pointer is merely over the grab
+   handle, so the drag itself never pays for creating one. */
+.window:has(.title-bar:hover),
+.window.is-dragging,
+.desktop-icon:hover,
+.desktop-icon.is-dragging {
+  will-change: transform;
 }
 
 /* ---------- desktop stickers ---------- */

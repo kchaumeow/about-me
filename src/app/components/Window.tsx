@@ -71,7 +71,7 @@ export default function Window({
     };
     const node = frameRef.current;
     if (node) {
-      node.style.transform = `translate(${at.current.x}px, ${at.current.y}px)`;
+      node.style.transform = `translate3d(${at.current.x}px, ${at.current.y}px, 0)`;
     }
   };
 
@@ -100,7 +100,7 @@ export default function Window({
         // get their own compositing layer
         transform:
           offset.x || offset.y
-            ? `translate(${offset.x}px, ${offset.y}px)`
+            ? `translate3d(${offset.x}px, ${offset.y}px, 0)`
             : undefined,
         zIndex: zIndexOf(windowId),
       }}
