@@ -186,6 +186,8 @@ h2 {
 }
 
 .window.is-dragging {
+  /* promote to its own layer for the duration of the drag only */
+  will-change: transform;
   box-shadow: inset 1px 1px 0 var(--white), inset -1px -1px 0 var(--shadow),
     6px 7px 0 rgba(40, 40, 70, 0.35);
 }
@@ -632,6 +634,10 @@ h2 {
   background: var(--highlight);
   color: var(--white);
   text-shadow: none;
+}
+
+.desktop-icon.is-dragging {
+  will-change: transform;
 }
 
 .desktop-icon:hover span {

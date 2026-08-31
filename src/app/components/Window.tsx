@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDesktop } from "./Desktop";
 
 export default function Window({
@@ -27,9 +27,11 @@ export default function Window({
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [collapsed, setCollapsed] = useState(false);
   const [zoomed, setZoomed] = useState(false);
-  const [dragOrigin, setDragOrigin] = useState<{ x: number; y: number } | null>(
-    null
-  );
+  const [dragging, setDragging] = useState(false);
+
+  const frameRef = useRef<HTMLDivElement>(null);
+  const grab = useRef<{ pointerX: number; pointerY: number } | null>(null);
+  const at = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     register({ id: windowId, title });
@@ -52,21 +54,33 @@ export default function Window({
     if ((event.target as HTMLElement).closest(".title-box")) return;
     focus(windowId);
     event.currentTarget.setPointerCapture(event.pointerId);
-    setDragOrigin({ x: event.clientX - offset.x, y: event.clientY - offset.y });
+    grab.current = { pointerX: event.clientX, pointerY: event.clientY };
+    at.current = { ...offset };
+    setDragging(true);
   };
 
+  // Pointer events outpace the display, so a setState per move would render
+  // frames nobody sees. Write the transform straight to the node instead —
+  // the browser still only paints once per frame. State catches up on release.
   const onDragMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragOrigin) return;
-    setOffset({
-      x: event.clientX - dragOrigin.x,
-      y: event.clientY - dragOrigin.y,
-    });
+    const from = grab.current;
+    if (!from) return;
+    at.current = {
+      x: offset.x + (event.clientX - from.pointerX),
+      y: offset.y + (event.clientY - from.pointerY),
+    };
+    const node = frameRef.current;
+    if (node) {
+      node.style.transform = `translate(${at.current.x}px, ${at.current.y}px)`;
+    }
   };
 
   const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragOrigin) return;
+    if (!grab.current) return;
     event.currentTarget.releasePointerCapture(event.pointerId);
-    setDragOrigin(null);
+    grab.current = null;
+    setOffset(at.current);
+    setDragging(false);
   };
 
   if (closedIds.includes(windowId)) return null;
@@ -75,10 +89,11 @@ export default function Window({
   if (activeId === windowId) classes.push("is-active");
   if (collapsed) classes.push("is-collapsed");
   if (zoomed) classes.push("is-zoomed");
-  if (dragOrigin) classes.push("is-dragging");
+  if (dragging) classes.push("is-dragging");
 
   return (
     <div
+      ref={frameRef}
       className={classes.join(" ")}
       style={{
         // no transform until actually moved, so undragged windows don't each

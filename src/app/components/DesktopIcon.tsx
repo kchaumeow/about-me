@@ -76,12 +76,9 @@ export default function DesktopIcon({
     return () => window.removeEventListener("pointerdown", onPointerDown);
   }, []);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [drag, setDrag] = useState<{
-    pointerX: number;
-    pointerY: number;
-    fromX: number;
-    fromY: number;
-  } | null>(null);
+  const [dragging, setDragging] = useState(false);
+  const grab = useRef<{ pointerX: number; pointerY: number } | null>(null);
+  const at = useRef({ x: 0, y: 0 });
   // a ref, not state: the click handler must read this synchronously
   const movedRef = useRef(false);
 
@@ -95,33 +92,40 @@ export default function DesktopIcon({
   const startDrag = (event: React.PointerEvent<HTMLAnchorElement>) => {
     event.currentTarget.setPointerCapture(event.pointerId);
     setSelected(true);
-    setDrag({
-      pointerX: event.clientX,
-      pointerY: event.clientY,
-      fromX: offset.x,
-      fromY: offset.y,
-    });
+    grab.current = { pointerX: event.clientX, pointerY: event.clientY };
+    at.current = { ...offset };
     movedRef.current = false;
+    setDragging(true);
   };
 
+  // same as the windows: write straight to the node, no render per move
   const onDragMove = (event: React.PointerEvent<HTMLAnchorElement>) => {
-    if (!drag) return;
-    const dx = event.clientX - drag.pointerX;
-    const dy = event.clientY - drag.pointerY;
+    const from = grab.current;
+    if (!from) return;
+    const dx = event.clientX - from.pointerX;
+    const dy = event.clientY - from.pointerY;
     if (Math.hypot(dx, dy) > DRAG_SLOP) movedRef.current = true;
-    setOffset({ x: drag.fromX + dx, y: drag.fromY + dy });
+    at.current = { x: offset.x + dx, y: offset.y + dy };
+    const node = iconRef.current;
+    if (node) {
+      node.style.transform = `translate(${at.current.x}px, ${at.current.y}px)`;
+    }
   };
 
   const endDrag = (event: React.PointerEvent<HTMLAnchorElement>) => {
-    if (!drag) return;
+    if (!grab.current) return;
     event.currentTarget.releasePointerCapture(event.pointerId);
-    setDrag(null);
+    grab.current = null;
+    setOffset(at.current);
+    setDragging(false);
   };
 
   return (
     <Link
       ref={iconRef}
-      className={selected ? "desktop-icon is-selected" : "desktop-icon"}
+      className={`desktop-icon${selected ? " is-selected" : ""}${
+        dragging ? " is-dragging" : ""
+      }`}
       href={href}
       draggable={false}
       style={{
