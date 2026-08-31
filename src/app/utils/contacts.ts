@@ -5,6 +5,11 @@ export const contacts = [
     href: "https://t.me/kchaumeow",
   },
   {
+    name: "Channel",
+    value: "https://t.me/fanatkakotov",
+    href: "https://t.me/fanatkakotov",
+  },
+  {
     name: "Email",
     value: "atrofimova516@gmail.com",
     href: "mailto:atrofimova516@gmail.com",
