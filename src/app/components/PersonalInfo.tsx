@@ -17,7 +17,7 @@ export default function PersonalInfo() {
           />
         </div>
         <div className="common-content-info">
-          <h2>My name is Alyona Trofimova</h2>
+          <h2>My name is Alyona Knyshova</h2>
           <div className="desc">
             <p>I am Frontend developer!</p>
             <p>Also can do backend on Node.js</p>
