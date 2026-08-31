@@ -5,7 +5,7 @@ import MenuBar from "./components/MenuBar";
 import Stickers from "./components/Stickers";
 
 export const metadata: Metadata = {
-  title: "About Alyona",
+  title: "Alyona Knyshova page",
   description: "This is a personal page of Alyona Knyshova",
 };
 
