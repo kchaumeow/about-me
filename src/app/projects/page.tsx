@@ -3,7 +3,7 @@ import Projects from "../components/Projects";
 
 export default function ProjectsPage() {
   return (
-    <div className="home">
+    <div className="home projects-desk">
       <Projects />
       <DesktopIcon href="/" label="Home" icon="home" />
     </div>
