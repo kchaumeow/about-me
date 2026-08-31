@@ -343,12 +343,7 @@ h2 {
   gap: 1.5rem;
 }
 
-/* the projects page: window nudged left, the home icon parked to the right */
-.projects-desk > :nth-child(1) {
-  align-self: flex-start;
-  margin-left: min(6vw, 90px);
-}
-
+/* the projects page: window centred, the home icon parked to the right */
 .projects-desk > :nth-child(2) {
   align-self: flex-end;
   margin-right: min(12vw, 180px);
@@ -782,7 +777,6 @@ h2 {
   .scattered > :nth-child(1),
   .scattered > :nth-child(2),
   .scattered > :nth-child(3),
-  .projects-desk > :nth-child(1),
   .projects-desk > :nth-child(2) {
     align-self: center;
     margin-left: 0;
