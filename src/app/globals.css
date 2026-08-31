@@ -237,9 +237,8 @@ h2 {
   align-items: stretch;
   height: var(--menubar-height);
   padding-left: 6px;
-  background: linear-gradient(180deg, #fdfdfd 0, #e4e4e4 100%);
+  background: linear-gradient(180deg, #ffffff 0, #f2f2f2 55%, #e8e8e8 100%);
   border-bottom: 1px solid var(--ink);
-  box-shadow: 0 1px 0 rgba(40, 40, 70, 0.3);
 }
 
 .menu-title {
@@ -248,7 +247,6 @@ h2 {
   gap: 4px;
   padding: 0 9px;
   font-size: 12px;
-  font-weight: bold;
   background: none;
   border: none;
   font-family: inherit;
@@ -256,16 +254,17 @@ h2 {
   cursor: pointer;
 }
 
+/* menu titles invert to black when picked, the way Mac OS does it */
 .menu-title:hover,
 .menu-title[aria-expanded='true'] {
-  background: var(--highlight);
+  background: var(--ink);
   color: var(--white);
 }
 
+/* the page you are on, marked without a band Mac OS never had */
 .menu-title.active-link {
   text-decoration: none;
-  background: var(--highlight-light);
-  color: var(--ink);
+  font-weight: bold;
 }
 
 .menu-title svg {
@@ -282,7 +281,6 @@ h2 {
   gap: 8px;
   padding: 0 10px;
   font-size: 12px;
-  font-weight: bold;
   white-space: nowrap;
 }
 
