@@ -277,9 +277,11 @@ h2 {
 .menu-clock {
   display: flex;
   align-items: center;
+  gap: 8px;
   padding: 0 10px;
   font-size: 12px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 /* ---------- apple menu dropdown ---------- */
@@ -774,6 +776,10 @@ h2 {
   }
   .menu-clock {
     padding: 0 6px;
+  }
+  /* no room for the date beside the menu titles on a phone */
+  .menu-date {
+    display: none;
   }
   .contacts {
     grid-template-columns: 1fr auto;

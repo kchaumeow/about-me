@@ -25,25 +25,32 @@ function PantherMark() {
 }
 
 function useClock() {
-  const [time, setTime] = useState("");
+  const [clock, setClock] = useState({ date: "", time: "" });
+
   useEffect(() => {
-    const tick = () =>
-      setTime(
-        new Date().toLocaleTimeString([], {
-          hour: "numeric",
+    const tick = () => {
+      const now = new Date();
+      const weekday = now.toLocaleDateString(undefined, { weekday: "short" });
+      const month = now.toLocaleDateString(undefined, { month: "short" });
+      setClock({
+        date: `${weekday} ${now.getDate()}. ${month}`,
+        time: now.toLocaleTimeString(undefined, {
+          hour: "2-digit",
           minute: "2-digit",
-        })
-      );
+        }),
+      });
+    };
     tick();
     const id = setInterval(tick, 10000);
     return () => clearInterval(id);
   }, []);
-  return time;
+
+  return clock;
 }
 
 export default function MenuBar() {
   const [open, setOpen] = useState(false);
-  const time = useClock();
+  const clock = useClock();
   const { windows, closedIds, open: openWindow, cleanUp } = useDesktop();
   const pathname = usePathname();
   // one entry for the page you are not on, so nothing is listed twice
@@ -115,9 +122,10 @@ export default function MenuBar() {
           <span>Projects</span>
         </CustomLink>
         <div className="menu-spacer" />
-        {/* filled in after mount: the time is client-only data */}
+        {/* filled in after mount: the clock is client-only data */}
         <div className="menu-clock" suppressHydrationWarning>
-          {time}
+          <span className="menu-date">{clock.date}</span>
+          {clock.time}
         </div>
       </div>
     </>
