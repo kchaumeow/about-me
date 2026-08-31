@@ -1,16 +1,16 @@
 import Contacts from "./components/Contacts";
-import GoToProjects from "./components/GoToProjects";
+import DesktopIcon from "./components/DesktopIcon";
+import Hobbies from "./components/Hobbies";
 import PersonalInfo from "./components/PersonalInfo";
-import Stack from "./components/Stack";
 
 export default function MainPage() {
   return (
-    <div className="home">
+    <div className="home scattered">
       <PersonalInfo />
-      <Stack />
+      <Hobbies />
       <div className="bottom-content">
         <Contacts />
-        <GoToProjects />
+        <DesktopIcon href="/projects" label="Projects" icon="folder" />
       </div>
     </div>
   );
