@@ -343,8 +343,8 @@ h2 {
   gap: 1.5rem;
 }
 
-/* the projects page: window centred, the home icon parked to the right */
-.projects-desk > :nth-child(2) {
+/* the projects page: windows centred, the home icon parked to the right */
+.projects-desk > .desktop-icon {
   align-self: flex-end;
   margin-right: min(12vw, 180px);
 }
@@ -777,7 +777,7 @@ h2 {
   .scattered > :nth-child(1),
   .scattered > :nth-child(2),
   .scattered > :nth-child(3),
-  .projects-desk > :nth-child(2) {
+  .projects-desk > .desktop-icon {
     align-self: center;
     margin-left: 0;
     margin-right: 0;
