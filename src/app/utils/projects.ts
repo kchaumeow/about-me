@@ -15,6 +15,13 @@ export const projects = [
   //   source: "https://github.com/kchaumeow/giga-todos",
   // },
   {
+    name: "dev-proxy",
+    description:
+      "A universal dev proxy: point a local front end at a backend that refuses plain HTTP.",
+    language: "TypeScript",
+    source: "https://github.com/kchaumeow/dev-proxy",
+  },
+  {
     name: "games-web",
     description: "Website with a free-to-play games lists and links! Enjoy",
     language: "TypeScript",
@@ -63,14 +70,6 @@ export const projects = [
     language: "HTML",
     live: "https://kchaumeow.github.io/Ducks2/",
     source: "https://github.com/kchaumeow/Ducks2",
-  },
-  {
-    name: "landing-psycho",
-    description:
-      "A landing page for the YouTalk therapy service, linking through to its blog.",
-    language: "HTML",
-    live: "https://kchaumeow.github.io/landing-psycho",
-    source: "https://github.com/kchaumeow/landing-psycho",
   },
   {
     name: "AnimeHub",
