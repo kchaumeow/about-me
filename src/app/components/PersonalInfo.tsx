@@ -11,13 +11,13 @@ export default function PersonalInfo() {
             priority={true}
             className="profile-image"
             src="/profile-photo.jpg"
-            alt="My photo"
+            alt="Alyona Knyshova"
             width={576}
             height={576}
           />
         </div>
         <div className="common-content-info">
-          <h2>My name is Alyona Knyshova</h2>
+          <h1>My name is Alyona Knyshova</h1>
           <div className="desc">
             <p>I am Frontend developer!</p>
             <p>Also can do backend on Node.js</p>

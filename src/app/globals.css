@@ -62,6 +62,7 @@ a {
   cursor: pointer;
 }
 
+h1,
 h2 {
   color: var(--ink);
 }
@@ -403,7 +404,7 @@ h2 {
   max-width: 370px;
 }
 
-.common-content-info h2 {
+.common-content-info h1 {
   margin: 0;
   font-size: 1.05rem;
 }
@@ -809,4 +810,15 @@ h2 {
     grid-column: 1 / -1;
     text-align: left;
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
