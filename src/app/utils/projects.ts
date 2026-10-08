@@ -7,13 +7,6 @@ export const projects = [
     live: "https://cinema-poisk.vercel.app",
     source: "https://github.com/kchaumeow/cinema-search",
   },
-  // {
-  //   name: "giga-todos",
-  //   description: "A task list app built with React, TypeScript and Vite.",
-  //   language: "TypeScript",
-  //   live: "https://giga-todos.vercel.app",
-  //   source: "https://github.com/kchaumeow/giga-todos",
-  // },
   {
     name: "dev-proxy",
     description:
