@@ -49,7 +49,7 @@ export const metadata: Metadata = {
       "Frontend developer at EXP Software GmbH. React, TypeScript, Next.js and Node.js.",
   },
   verification: {
-    google: "OabOY7-g-qJaPXzYVW-FhOKL_UOMdIKgYUlt47EkXxg",
+    google: "aDdwidEaeH4k04XHDxm0rd78q0SZWfUN2-d4RKCPut8",
   },
   robots: {
     index: true,
