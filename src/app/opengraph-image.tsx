@@ -3,7 +3,7 @@ import { join } from "path";
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Alyona Knyshova — Frontend Developer. React, TypeScript, Next.js, Node.js.";
+  "Alyona Knyshova — Full-Stack Software Developer. React, TypeScript, Java, Node.js.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -170,7 +170,7 @@ export default function Image() {
                   color: "#2f2f3f",
                 }}
               >
-                Frontend Developer
+                Full-Stack Software Developer
               </div>
               <div
                 style={{
@@ -185,7 +185,7 @@ export default function Image() {
                 }}
               >
                 <div style={{ display: "flex" }}>
-                  React · TypeScript · Next.js · Node.js
+                  React · TypeScript · Java · Node.js
                 </div>
                 <div style={{ display: "flex", color: SHADOW_DEEP }}>
                   github.com/kchaumeow

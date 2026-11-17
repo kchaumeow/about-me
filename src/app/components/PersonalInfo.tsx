@@ -19,10 +19,16 @@ export default function PersonalInfo() {
         <div className="common-content-info">
           <h1>My name is Alyona Knyshova</h1>
           <div className="desc">
-            <p>I am Frontend developer!</p>
-            <p>Also can do backend on Node.js</p>
-            <p>These days I work at EXP Software GmbH.</p>
-            <p>Currently finding my way around Java, CI/CD and Docker.</p>
+            <p>I am a Full-Stack Software Developer based in Munich!</p>
+            <p>
+              3 years of building React/TypeScript frontends and Java and
+              Node.js backends
+            </p>
+            <p>
+              These days I work at EXP Software GmbH on internal tools with
+              Java, Quarkus, React and MCP.
+            </p>
+            <p>Before that: MTS Web Services, Yandex and WebTeamStorm.</p>
             <p>
               On this webpage you can find my contacts, hobbies and personal
               projects
